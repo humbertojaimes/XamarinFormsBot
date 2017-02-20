@@ -9,13 +9,17 @@ using Xamarin.Forms;
 
 namespace BotFirst.View
 {
-    public partial class MainPage : ContentPage
-    {
-        public MainPage()
-        {
-            InitializeComponent();
-            MainPageViewModel vm = new MainPageViewModel();
-            this.BindingContext = vm;
-        }
-    }
+	public partial class MainPage : ContentPage
+	{
+
+		public MainPage()
+		{
+			InitializeComponent();
+			MainPageViewModel vm = new MainPageViewModel();
+			this.BindingContext = vm;
+			lvChat.ItemAppearing += (sender, e) => lvChat.ScrollTo(vm.myChat.Last(), ScrollToPosition.MakeVisible, true); ;
+		}
+
+
+	}
 }
